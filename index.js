@@ -7,22 +7,6 @@ const token = '6655519759:AAFYqEO8twQTyNEzVP-4bBBHrxS3Ql-5ji8';
 const bot = new TelegramBot(token, {polling: true});
 
 const WebAppUrl = 'https://ubiquitous-trifle-97a24d.netlify.app/';
-
-// Matches "/echo [whatever]"
-bot.onText(/\/echo (.+)/, (msg, match) => {
-    // 'msg' is the received Message from Telegram
-    // 'match' is the result of executing the regexp above on the text content
-    // of the message
-
-    const chatId = msg.chat.id;
-    const resp = match[1]; // the captured "whatever"
-
-    // send back the matched "whatever" to the chat
-    bot.sendMessage(chatId, resp);
-});
-
-// Listen for any kind of message. There are different kinds of
-// messages.
 bot.on('message', async (msg) => {
     const chatId = msg.chat.id;
     const text = msg.text;
